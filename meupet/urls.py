@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from meupetApp.views import index
+from meupetApp.views import index,new_perfil
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/',index,name='index'),
+    path('new_perfil/',new_perfil,name='new_perfil'),
 
 ]
