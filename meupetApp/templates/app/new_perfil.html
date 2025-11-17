@@ -3,3 +3,11 @@
 {{ form}}
     <input type="submit" value="Salvar" class="btn-primary">
     </form>
+
+<h1>Aqui estão os Perfis</h1>
+{% for perfil in perfis %}
+    <h2>{{ perfil.foto_perfil }}</h2>
+    <h2>{{ perfil.nome_perfil }}</h2>
+    <h2>{{ perfil.nascimento_perfil }}</h2>
+    <h2>{{ perfil.rg_perfil }}</h2>
+{% endfor %}

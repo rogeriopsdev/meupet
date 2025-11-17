@@ -7,7 +7,7 @@ class Perfil(models.Model):
     id_perfil =models.AutoField(primary_key=True)
     nome_perfil = models.CharField(max_length=255)
     rg_perfil = models.CharField(max_length=255)
-    nascimento_perfil = models.DateField(max_length=255)
+    nascimento_perfil = models.CharField(max_length=255)
     foto_perfil =models.ImageField(blank=True, null=True)
 
     def __str__(self):
