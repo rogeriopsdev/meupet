@@ -1,13 +1,37 @@
-<form method="post" enctype="multipart/form-data">
-{% csrf_token %}
-{{ form}}
-    <input type="submit" value="Salvar" class="btn-primary">
+{% extends "app/base.html" %}
+{% block conteudo %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Salvar" class=" btn btn-primary">
     </form>
 
-<h1>Aqui estão os Perfis</h1>
-{% for perfil in perfis %}
-    <h2>{{ perfil.foto_perfil }}</h2>
-    <h2>{{ perfil.nome_perfil }}</h2>
-    <h2>{{ perfil.nascimento_perfil }}</h2>
-    <h2>{{ perfil.rg_perfil }}</h2>
-{% endfor %}
+    <h1>Aqui estão os Perfis</h1>
+    <table class="table">
+        <th>
+            <tr>
+                <td>Foto</td>
+                <td>Nome</td>
+                <td>Data Nascimento</td>
+                <td>RG</td>
+                <td>Editar</td>
+                <td>Excluir</td>
+            </tr>
+        </th>
+        {% for perfil in perfis %}
+            <tr>
+                <td><img src="{{ perfil.foto_perfil }}" alt="S/I"></td>
+                <td>{{ perfil.nome_perfil }}</td>
+                <td>{{ perfil.nascimento_perfil }}</td>
+                <td>{{ perfil.rg_perfil }}</td>
+                <td>
+                    <a href="#" class="btn btn-warning">Editar</a>
+                </td>
+                <td>
+                    <a href="#" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock conteudo %}
