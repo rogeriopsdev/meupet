@@ -1,8 +1,8 @@
 {% extends "app/base.html" %}
 {% block conteudo %}
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" class="btn-group bg-dark p-2 text-info">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_p }}
         <input type="submit" value="Salvar" class=" btn btn-primary">
     </form>
 
@@ -20,7 +20,7 @@
         </th>
         {% for perfil in perfis %}
             <tr>
-                <td><img src="{{ perfil.foto_perfil }}" alt="S/I"></td>
+                <td><img src="{{ perfil.foto_url }}" alt="S/I"></td>
                 <td>{{ perfil.nome_perfil }}</td>
                 <td>{{ perfil.nascimento_perfil }}</td>
                 <td>{{ perfil.rg_perfil }}</td>
