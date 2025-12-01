@@ -3,7 +3,7 @@
     <form method="post" enctype="multipart/form-data" class="btn-group bg-dark p-2 text-info">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Salvar" class=" btn btn-primary">
+        <input type="submit" value="Editar" class=" btn btn-warning">
     </form>
 
     <h1>Aqui estão os Perfis</h1>
@@ -25,7 +25,7 @@
                 <td>{{ perfil.nascimento_perfil }}</td>
                 <td>{{ perfil.rg_perfil }}</td>
                 <td>
-                    <a href="{% url 'editar' perfil.id_perfil %}" class="btn btn-warning">Editar</a>
+                    <a href="#" class="btn btn-warning">Editar</a>
                 </td>
                 <td>
                     <a href="#" class="btn btn-danger">Excluir</a>

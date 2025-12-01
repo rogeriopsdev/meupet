@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from meupetApp.forms import PerfilForms, PetForms
 from meupetApp.models import Perfil, Pet
 
@@ -19,3 +19,17 @@ def new_perfil(request):
 
 def mostrar_perfil(request):
     perfis = Perfil.objects.all()
+
+def editar_perfil(request,id):
+    p = get_object_or_404(Perfil, pk=id)
+    perfis = Perfil.objects.all()
+    form = PerfilForms(instance=p)
+    if request.method == "POST":
+        form = PerfilForms(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            redirect('new_perfil')
+        else:
+            return render(request, 'app/editar_perfil.html', {'form': form, 'perfis': perfis, 'p': p})
+    else:
+        return render(request, 'app/editar_perfil.html', {'form': form, 'perfis': perfis,'p':p})
